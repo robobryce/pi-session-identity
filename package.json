@@ -1,0 +1,59 @@
+{
+  "name": "pi-session-identity",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Expose Pi's active session JSONL file and directory to child processes.",
+  "type": "module",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "npm run lint && npm run typecheck && npm test && npm run test:package && npm run test:audit",
+    "lint": "eslint .",
+    "test": "node --experimental-strip-types --test test/*.test.ts",
+    "test:audit": "npm audit --omit=dev --audit-level=low",
+    "test:package": "npm pack --dry-run",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "session",
+    "environment-variables"
+  ],
+  "author": "Bryce Adelstein Lelbach",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robobryce/pi-session-identity.git"
+  },
+  "homepage": "https://github.com/robobryce/pi-session-identity#readme",
+  "bugs": {
+    "url": "https://github.com/robobryce/pi-session-identity/issues"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "0.82.1",
+    "@types/node": "25.9.5",
+    "eslint": "10.0.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.65.0"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    }
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  }
+}
